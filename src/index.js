@@ -33,6 +33,6 @@ app.set('views', path.join(__dirname, 'resources/views'));
 //   res.send(req.body.que)
 // })
 
-        app.listen(port, () => {
+         app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
