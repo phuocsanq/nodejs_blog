@@ -5,6 +5,9 @@ const handlebars = require('express-handlebars').engine;
 const app = express();
 const route = require('./routes/index'); //
 const port = 3000;
+const db = require('./config/db');
+// connect to DB
+db.connect();
 // static file
 app.use(express.static(path.join(__dirname, 'public')));
 // midleware cho POST
@@ -27,12 +30,12 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 //basic routing
-  route(app);
+route(app);
 
 // app.post('/search', (req, res) => {
 //   res.send(req.body.que)
 // })
 
-         app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
