@@ -10,9 +10,9 @@ class SiteController {
     //     }
     // }
     home(req, res, next) {
-        Course.find({})                        //.lean()   (thì khỏi cần convert qua object bình thường)
+        Course.find({}).lean()                     //.lean()   (thì khỏi cần convert qua object bình thường)
             .then(courses => {
-                courses = courses.map(course => course.toObject())          // course là object constructor của mongoose -> object bình thường
+                // courses = courses.map(course => course.toObject())          // course là object constructor của mongoose -> object bình thường
                 res.render('home', {courses})
             })
             .catch(next)
