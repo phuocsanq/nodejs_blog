@@ -1,6 +1,12 @@
+const Course = require('../models/Course')
+
 class CourseController {
-    show(req, res) {
-        res.send('COURSES DETAIL' + req.params.slug);
+    show(req, res, next) {
+        Course.findOne({ slug : req.params.slug }).lean() 
+            .then(course => {
+                res.render('courses/show', {course})
+            })
+            .catch(next)
     }
 }
 
