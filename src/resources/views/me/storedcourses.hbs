@@ -1,0 +1,26 @@
+<div class="container">
+    <h3 class="d-flex justify-content-center mt-4">Khoá học của tôi</h3>
+    <table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên khoá học</th>
+      <th scope="col">Cấp độ</th>
+      <th scope="col" colspan="3">Ngày tạo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each courses}}
+    <tr>
+        {{!-- https://www.npmjs.com/package/express-handlebars --}}
+      <th scope="row">{{sum @index 1}}</th>  {{!-- template-engine hỗ trợ --}}
+      <td>{{this.name}}</td>
+      <td></td>
+      <td>{{this.createdAt}}</td>
+      <td><a href="/courses/{{this._id}}/edit" class="btn btn-outline-primary"><i class="bi bi-pen"></i></a></td>
+      <td><a href="#" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

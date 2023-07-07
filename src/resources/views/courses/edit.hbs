@@ -1,0 +1,17 @@
+<h2 class="d-flex justify-content-center mt-4">cập nhật khoá học</h2>
+{{!-- https://expressjs.com/en/resources/middleware/method-override.html --}}
+<form method="POST" action="/courses/{{course._id}}?_method=PUT">
+    <div class="form-group">
+        <label>Tên khoá học</label>
+        <input type="text" class="form-control" name="name" value="{{course.name}}">
+    </div>
+    <div class="form-group">
+        <label>Mô tả</label>
+        <textarea class="form-control" name="description">{{course.description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label>VideoId</label>
+        <input type="text" class="form-control" name="videoId" value="{{course.videoId}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>
