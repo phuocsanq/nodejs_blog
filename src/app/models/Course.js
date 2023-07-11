@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // https://www.npmjs.com/package/mongoose-slug-updater
 const slug = require('mongoose-slug-updater');
-mongoose.plugin(slug);
+// https://www.npmjs.com/package/mongoose-delete#simple-usage
+const mongooseDelete = require('mongoose-delete');
 
 const Course = new Schema(
     {
@@ -21,5 +22,9 @@ const Course = new Schema(
         timestamps: true,
     },
 );
+
+// add plugins
+mongoose.plugin(slug);
+Course.plugin(mongooseDelete, { deletedAt : true,  overrideMethods: 'all' });
 
 module.exports = mongoose.model('Course', Course);

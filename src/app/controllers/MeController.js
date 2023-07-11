@@ -1,10 +1,15 @@
 const Course = require('../models/Course');
 
 class MeController {
-    storedcourses(req, res, next) {
-        Course.find({})
-            .lean()
-            .then((courses) => res.render('me/storedCourses', { courses }))
+    storedCourses(req, res, next) {
+        Course.find({}).lean()
+            .then((courses) => res.render('me/storedcourses', { courses }))
+            .catch(next);
+    }
+
+    trashCourses(req, res, next) {
+        Course.findWithDeleted({deleted:true}).lean()
+            .then((courses) => res.render('me/trashcourses', { courses }))
             .catch(next);
     }
 }
